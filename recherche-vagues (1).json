@@ -1,0 +1,152 @@
+{
+  "waves": [
+    {
+      "searches": [
+        "WEB (Front-end & Architecture)",
+        "javascript carousel ui library",
+        "confetti animation javascript"
+      ],
+      "urls": [
+        "https://dev.to/techelopment/web-application-architecture-front-end-middleware-and-back-end-2ld7",
+        "https://swiperjs.com/",
+        "https://github.com/catdad/canvas-confetti"
+      ],
+      "keywords": [
+        {
+          "term": "React",
+          "type": "tech",
+          "description": "Bibliothèque JavaScript pour interfaces utilisateur"
+        },
+        {
+          "term": "Back-End",
+          "type": "tech",
+          "description": "Logique serveur et gestion données"
+        },
+        {
+          "term": "Vue.js",
+          "type": "tech",
+          "description": "Framework JavaScript d’interface web"
+        },
+        {
+          "term": "API",
+          "type": "tech",
+          "description": "Interface de communication entre systèmes"
+        },
+        {
+          "term": "Canvas",
+          "type": "tool",
+          "description": "Zone HTML de dessin dynamique"
+        },
+        {
+          "term": "Confetti",
+          "type": "tool",
+          "description": "Animation visuelle de célébration"
+        }
+      ]
+    },
+    {
+      "searches": [
+        "Explorer API",
+        "Explorer Canvas",
+        "Scalability"
+      ],
+      "urls": [
+        "https://www.geeksforgeeks.org/system-design/what-is-scalability/",
+        "https://scalable.co/?gad_source=1&gad_campaignid=17553524360&gbraid=0AAAAAovcmOplx-l3iqSXFuxKJpTYPeF4Y&gclid=Cj0KCQiAvtzLBhCPARIsALwhxdopmUgEY39pww8B7yzu1rOj9lbHZ0Lp8QqOU62eh-b_V33a1XrPPwAaAhnGEALw_wcB",
+        "https://www.redhat.com/fr/topics/api/what-are-application-programming-interfaces",
+        "https://www.w3schools.com/html/html5_canvas.asp"
+      ],
+      "keywords": [
+        {
+          "term": "API SOAP",
+          "type": "tech",
+          "description": "API basée sur XML"
+        },
+        {
+          "term": "API  REST",
+          "type": "tech",
+          "description": "API basée sur HTTP"
+        },
+        {
+          "term": "HTTP",
+          "type": "tech",
+          "description": "Protocole de communication web"
+        },
+        {
+          "term": "HTML",
+          "type": "tech",
+          "description": "Structure des pages web"
+        },
+        {
+          "term": "SVG",
+          "type": "tech",
+          "description": "Graphiques vectoriels pour le web"
+        },
+        {
+          "term": "CSS",
+          "type": "tech",
+          "description": "Style et mise en page web"
+        },
+        {
+          "term": "CDN",
+          "type": "tech",
+          "description": "Content Delivery Networks"
+        },
+        {
+          "term": "AWS",
+          "type": "tech",
+          "description": "Amazon Web Services"
+        },
+        {
+          "term": "LLD",
+          "type": "tech",
+          "description": "Low Level Design"
+        }
+      ]
+    },
+    {
+      "searches": [
+        "Postman",
+        "Explorer AWS",
+        "LLD"
+      ],
+      "urls": [
+        "https://blog.postman.com/soap-api-definition/",
+        "https://aws.amazon.com/fr/free/?trk=58f396cd-b77e-4db9-a044-87b2ac5669ce&sc_channel=ps&trk=58f396cd-b77e-4db9-a044-87b2ac5669ce&sc_channel=ps&ef_id=Cj0KCQiAvtzLBhCPARIsALwhxdpkFbvHwhkApo2AedqZhVX2JTiOdW1sY2wQptroZgEYlaxqXa5erbsaAv8pEALw_wcB:G:s&s_kwcid=AL!4422!3!563924928675!e!!g!!aws!15361937660!135732492888&gad_campaignid=15361937660&gbraid=0AAAAADjHtp9Cq7aA",
+        "https://github.com/ashishps1/awesome-low-level-design"
+      ],
+      "keywords": [
+        {
+          "term": "Postman",
+          "type": "tool",
+          "description": "Outil de test d’API"
+        },
+        {
+          "term": "JSON",
+          "type": "tech",
+          "description": "Format d’échange de données"
+        },
+        {
+          "term": "Kafka",
+          "type": "tech",
+          "description": "Système de messagerie distribuée"
+        },
+        {
+          "term": "gRPC",
+          "type": "tech",
+          "description": "Communication rapide entre services"
+        },
+        {
+          "term": "AWS Lambda",
+          "type": "tech",
+          "description": "Exécution de code sans serveur"
+        },
+        {
+          "term": "OOD",
+          "type": "example",
+          "description": "Conception orientée objets"
+        }
+      ]
+    }
+  ]
+}
