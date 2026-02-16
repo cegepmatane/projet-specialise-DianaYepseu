@@ -1,24 +1,113 @@
-<!DOCTYPE html>
-<html lang="">
+<!doctype html>
+<html lang="fr">
   <head>
-    <meta charset="utf-8">
-    <title></title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CookieBook – PoC 2 (Adresse + Pin utilisateur)</title>
+
+    <script
+      type="module"
+      src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"
+    ></script>
+
+    <style>
+      html, body { height: 100%; margin: 0; }
+      .bar {
+        position: absolute;
+        top: 14px; left: 14px; right: 14px;
+        z-index: 10;
+        background: white;
+        padding: 12px;
+        border-radius: 12px;
+        box-shadow: 0 12px 30px rgba(0,0,0,.12);
+        max-width: 700px;
+      }
+      gmp-map { display:block; width:100%; height:100%; }
+
+      /* pin rouge custom */
+      .pin-wrap { position: relative; width: 18px; height: 18px; }
+      .pin-red {
+        width: 18px; height: 18px; border-radius: 999px;
+        background: #e2182d; border: 3px solid #fff;
+        box-shadow: 0 10px 18px rgba(226,24,45,.25);
+      }
+      .pin-red::after {
+        content:""; position:absolute; left:50%; top:100%;
+        transform:translateX(-50%);
+        border-left:7px solid transparent;
+        border-right:7px solid transparent;
+        border-top:10px solid #e2182d;
+      }
+    </style>
+
+    <script>
+      function makeRedPin() {
+        const wrap = document.createElement("div");
+        wrap.className = "pin-wrap";
+        const pin = document.createElement("div");
+        pin.className = "pin-red";
+        wrap.appendChild(pin);
+        return wrap;
+      }
+
+      async function init() {
+        await customElements.whenDefined("gmp-map");
+
+        const mapEl = document.querySelector("gmp-map");
+        const placePicker = document.querySelector("gmpx-place-picker");
+
+        mapEl.innerMap.setOptions({ mapTypeControl: false });
+
+        const userInfo = new google.maps.InfoWindow();
+        let userMarker = null;
+
+        placePicker.addEventListener("gmpx-placechange", () => {
+          const place = placePicker.value;
+
+          if (!place || !place.location) {
+            alert("Choisis une adresse dans la liste de suggestions.");
+            return;
+          }
+
+          // centre carte sur l’adresse
+          mapEl.center = place.location;
+          mapEl.zoom = 12;
+
+          // crée le marqueur utilisateur au besoin
+          if (!userMarker) {
+            userMarker = document.createElement("gmp-advanced-marker");
+            const pin = makeRedPin();
+            userMarker.appendChild(pin);
+            mapEl.appendChild(userMarker);
+
+            // ré-ouvrir la bulle au clic sur le pin
+            pin.addEventListener("click", (e) => {
+              e.stopPropagation();
+              userInfo.setContent("<strong>📍 C’est vous ici</strong>");
+              userInfo.open(mapEl.innerMap, userMarker);
+            });
+          }
+
+          // position utilisateur
+          userMarker.position = place.location;
+
+          // bulle automatique
+          userInfo.setContent("<strong>📍 C’est vous ici</strong>");
+          userInfo.open(mapEl.innerMap, userMarker);
+        });
+      }
+
+      document.addEventListener("DOMContentLoaded", init);
+    </script>
   </head>
+
   <body>
-    <!-- Google Maps Extended Component Library (Place Picker + gmp-map) -->
-<script
-  type="module"
-  src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"
-></script>
+    <div class="bar">
+      <gmpx-place-picker placeholder="Entrez votre adresse de livraison"></gmpx-place-picker>
+    </div>
 
-<!-- Chargement de l'API Google Maps -->
-<gmpx-api-loader
-  key="AIzaSyCv23VZTXsyllyA3ZS5ThSJPeobnFWDa4Y"
-  solution-channel="POC_CookieBook"
-></gmpx-api-loader>
+    <gmpx-api-loader key="VOTRE_CLE_API" solution-channel="POC_CookieBook"></gmpx-api-loader>
 
-<!-- Carte interactive (Map ID requis pour Advanced Markers) -->
-<gmp-map map-id="92eddb9b5ca973ab1cd06288"></gmp-map>
-
+    <gmp-map map-id="VOTRE_MAP_ID" center="47.2,-70.4" zoom="6"></gmp-map>
   </body>
 </html>
