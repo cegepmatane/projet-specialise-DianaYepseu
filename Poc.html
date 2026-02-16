@@ -3,44 +3,276 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CookieBook – PoC 2 (Adresse + Pin utilisateur)</title>
+    <title>CookieBook – PoC Localisation</title>
 
+    <!-- Google Maps Extended Component Library (Place Picker + gmp-map) -->
     <script
       type="module"
       src="https://ajax.googleapis.com/ajax/libs/@googlemaps/extended-component-library/0.6.11/index.min.js"
     ></script>
 
     <style>
-      html, body { height: 100%; margin: 0; }
-      .bar {
-        position: absolute;
-        top: 14px; left: 14px; right: 14px;
-        z-index: 10;
-        background: white;
-        padding: 12px;
-        border-radius: 12px;
-        box-shadow: 0 12px 30px rgba(0,0,0,.12);
-        max-width: 700px;
+      :root {
+        --brand: #e2182d;
+        --brand-dark: #b31324;
+        --bg: #f6f7fb;
+        --card: #ffffff;
+        --text: #101828;
+        --muted: #667085;
+        --border: #e6e8ef;
+        --shadow: 0 12px 30px rgba(16, 24, 40, 0.08);
+        --radius: 16px;
       }
-      gmp-map { display:block; width:100%; height:100%; }
 
-      /* pin rouge custom */
-      .pin-wrap { position: relative; width: 18px; height: 18px; }
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial;
+        background: var(--bg);
+        color: var(--text);
+      }
+
+      .topbar {
+        background: var(--brand);
+        color: #fff;
+        padding: 14px 18px;
+        font-weight: 900;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+      }
+
+      .topbar .brand {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+      .logo {
+        width: 34px;
+        height: 34px;
+        border-radius: 10px;
+        background: rgba(255,255,255,.18);
+        display: grid;
+        place-items: center;
+        font-weight: 900;
+      }
+
+      .wrap {
+        max-width: 1100px;
+        margin: 18px auto;
+        padding: 0 18px 30px;
+      }
+
+      .card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 16px;
+      }
+
+      .title {
+        margin: 0 0 10px;
+        font-size: 18px;
+        font-weight: 900;
+      }
+
+      .row {
+        display: flex;
+        gap: 12px;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: wrap;
+      }
+
+      .hint {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 8px;
+      }
+
+      .grid {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: 1.2fr 0.8fr;
+        gap: 16px;
+        align-items: start;
+      }
+
+      gmp-map {
+        display: block;
+        width: 100%;
+        height: 520px;
+        border-radius: var(--radius);
+        overflow: hidden;
+        border: 1px solid var(--border);
+        box-shadow: var(--shadow);
+        background: #fff;
+      }
+
+      /* Place picker */
+      .picker {
+        width: 100%;
+        max-width: 560px;
+      }
+      gmpx-place-picker {
+        width: 100%;
+      }
+
+      /* Sidebar */
+      .side {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+
+      .store-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .store-name {
+        margin: 0;
+        font-size: 15px;
+        font-weight: 900;
+      }
+      .store-addr {
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.25rem;
+        margin-top: 4px;
+      }
+
+      .pill {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 10px;
+        border-radius: 999px;
+        border: 1px solid var(--border);
+        background: #fff;
+        color: var(--text);
+        font-weight: 800;
+        font-size: 12px;
+      }
+
+      .nearest {
+        border-color: rgba(18,183,106,.35);
+        box-shadow: 0 12px 30px rgba(18,183,106,.10);
+      }
+
+      .btn {
+        border: none;
+        border-radius: 12px;
+        padding: 12px 14px;
+        font-weight: 900;
+        cursor: pointer;
+        font-size: 14px;
+      }
+      .btn-primary {
+        background: var(--brand);
+        color: #fff;
+      }
+      .btn-primary:hover { background: var(--brand-dark); }
+
+      .btn-outline {
+        background: #fff;
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+      .btn-outline:hover {
+        box-shadow: 0 10px 18px rgba(16,24,40,.06);
+      }
+
+      .mini {
+        font-size: 12px;
+        color: var(--muted);
+        margin: 0;
+      }
+
+      /* Petit badge statut chargement */
+      .status {
+        margin-top: 8px;
+        font-size: 12px;
+        font-weight: 800;
+        color: var(--muted);
+      }
+
+      @media (max-width: 920px) {
+        .grid { grid-template-columns: 1fr; }
+        gmp-map { height: 420px; }
+      }
+
+      /* ✅ Pin rouge (custom) */
+      /* IMPORTANT : laisse Google capter le clic sur le marker */
+      .pin-wrap,
       .pin-red {
-        width: 18px; height: 18px; border-radius: 999px;
-        background: #e2182d; border: 3px solid #fff;
-        box-shadow: 0 10px 18px rgba(226,24,45,.25);
+        pointer-events: none;
+      }
+
+      .pin-wrap {
+        position: relative;
+        width: 18px;
+        height: 18px;
+      }
+      .pin-red {
+        width: 18px;
+        height: 18px;
+        background: #e2182d;
+        border-radius: 999px;
+        border: 3px solid #fff;
+        box-shadow: 0 10px 18px rgba(226, 24, 45, 0.25);
       }
       .pin-red::after {
-        content:""; position:absolute; left:50%; top:100%;
-        transform:translateX(-50%);
-        border-left:7px solid transparent;
-        border-right:7px solid transparent;
-        border-top:10px solid #e2182d;
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 100%;
+        transform: translateX(-50%);
+        width: 0;
+        height: 0;
+        border-left: 7px solid transparent;
+        border-right: 7px solid transparent;
+        border-top: 10px solid #e2182d;
       }
     </style>
 
     <script>
+      // -------- Utils --------
+      function toRad(deg) { return deg * (Math.PI / 180); }
+
+      // Haversine distance in km
+      function distanceKm(a, b) {
+        const R = 6371;
+        const dLat = toRad(b.lat - a.lat);
+        const dLng = toRad(b.lng - a.lng);
+        const lat1 = toRad(a.lat);
+        const lat2 = toRad(b.lat);
+
+        const x =
+          Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+          Math.sin(dLng / 2) * Math.sin(dLng / 2) * Math.cos(lat1) * Math.cos(lat2);
+
+        const c = 2 * Math.atan2(Math.sqrt(x), Math.sqrt(1 - x));
+        return R * c;
+      }
+
+      function extractLatLng(location) {
+        const lat = typeof location.lat === "function" ? location.lat() : location.lat;
+        const lng = typeof location.lng === "function" ? location.lng() : location.lng;
+        if (typeof lat !== "number" || typeof lng !== "number") return null;
+        return { lat, lng };
+      }
+
+      // ✅ Pin rouge
       function makeRedPin() {
         const wrap = document.createElement("div");
         wrap.className = "pin-wrap";
@@ -50,18 +282,204 @@
         return wrap;
       }
 
+      // --- Geocoding (adresse -> coordonnées) ---
+      function geocodeAddress(geocoder, address) {
+        return new Promise((resolve, reject) => {
+          geocoder.geocode({ address }, (results, status) => {
+            if (status === "OK" && results && results[0]) {
+              const loc = results[0].geometry.location;
+              resolve({ lat: loc.lat(), lng: loc.lng() });
+            } else {
+              reject(new Error(`Geocode failed (${status}) for: ${address}`));
+            }
+          });
+        });
+      }
+
+      async function geocodeShops(shops) {
+        const geocoder = new google.maps.Geocoder();
+        for (const s of shops) {
+          try {
+            s.pos = await geocodeAddress(geocoder, s.address);
+          } catch (e) {
+            console.error(e);
+            s.pos = null;
+          }
+        }
+      }
+
+      // -------- PoC Init --------
       async function init() {
         await customElements.whenDefined("gmp-map");
 
         const mapEl = document.querySelector("gmp-map");
         const placePicker = document.querySelector("gmpx-place-picker");
+        const shopInfo = new google.maps.InfoWindow();
+        const userInfo = new google.maps.InfoWindow();
+        const statusEl = document.getElementById("status");
+
+
 
         mapEl.innerMap.setOptions({ mapTypeControl: false });
 
-        const userInfo = new google.maps.InfoWindow();
+        // Boutiques par ADRESSE (Google va trouver les vraies coordonnées)
+        const shops = [
+          {
+            id: "matane",
+            name: "CookieBook – Matane",
+            address: "616 avenue Saint-Rédempteur, Matane, QC, Canada",
+            pos: null,
+          },
+          {
+            id: "sblg",
+            name: "CookieBook – Saint-Basile-le-Grand",
+            address: "20 rue des Perdrix, Saint-Basile-le-Grand, QC, Canada",
+            pos: null,
+          },
+        ];
+
+        statusEl.textContent = "Chargement des boutiques (géocodage) …";
+
+        //  Géocode les adresses
+        await geocodeShops(shops);
+
+        // Marqueurs boutiques (avec pin rouge)
+        const shopMarkers = new Map();
+        const bounds = new google.maps.LatLngBounds();
+
+        shops.forEach((s) => {
+          if (!s.pos) return;
+
+          const m = document.createElement("gmp-advanced-marker");
+          m.position = s.pos;
+
+          //  pin rouge
+          m.appendChild(makeRedPin());
+
+          mapEl.appendChild(m);
+          shopMarkers.set(s.id, m);
+
+          bounds.extend(s.pos);
+
+          m.addEventListener("gmp-click", () => {
+          shopInfo.setContent(`<strong>${s.name}</strong><br><span>${s.address}</span>`);
+          shopInfo.open(mapEl.innerMap, m);
+        });
+
+        });
+
+        if (bounds.isEmpty()) {
+          statusEl.textContent = "Impossible de géocoder les boutiques. Vérifie Geocoding API.";
+          mapEl.center = { lat: 47.2, lng: -70.4 };
+          mapEl.zoom = 6;
+        } else {
+          mapEl.innerMap.fitBounds(bounds);
+          statusEl.textContent = "Boutiques chargées ✅";
+        }
+
+        // Marqueur utilisateur
         let userMarker = null;
 
-        placePicker.addEventListener("gmpx-placechange", () => {
+        function renderSidebar(nearestId = null, nearestKm = null) {
+          const list = document.getElementById("storeList");
+          list.innerHTML = "";
+
+          shops.forEach((s) => {
+            const isNearest = nearestId === s.id;
+
+            const card = document.createElement("div");
+            card.className = "store-card" + (isNearest ? " nearest" : "");
+
+            const title = document.createElement("h3");
+            title.className = "store-name";
+            title.textContent = s.name;
+
+            const addr = document.createElement("div");
+            addr.className = "store-addr";
+            addr.textContent = s.address;
+
+            const pills = document.createElement("div");
+            pills.style.display = "flex";
+            pills.style.gap = "10px";
+            pills.style.flexWrap = "wrap";
+
+            const pill1 = document.createElement("span");
+            pill1.className = "pill";
+            pill1.textContent = isNearest ? "✅ La plus proche" : "📍 Point de ramassage";
+            pills.appendChild(pill1);
+
+            if (isNearest && typeof nearestKm === "number") {
+              const pill2 = document.createElement("span");
+              pill2.className = "pill";
+              pill2.textContent = `📏 ~${nearestKm.toFixed(1)} km`;
+              pills.appendChild(pill2);
+            }
+
+            const actions = document.createElement("div");
+            actions.style.display = "flex";
+            actions.style.justifyContent = "space-between";
+            actions.style.gap = "10px";
+            actions.style.alignItems = "center";
+
+            const btnView = document.createElement("button");
+            btnView.className = "btn btn-outline";
+            btnView.textContent = "Voir sur la carte";
+            btnView.addEventListener("click", () => focusShop(s));
+
+            const btnChoose = document.createElement("button");
+            btnChoose.className = "btn btn-primary";
+            btnChoose.textContent = "Choisir";
+            btnChoose.addEventListener("click", () => chooseShop(s));
+
+            actions.appendChild(btnView);
+            actions.appendChild(btnChoose);
+
+            card.appendChild(title);
+            card.appendChild(addr);
+            card.appendChild(pills);
+            card.appendChild(actions);
+
+            list.appendChild(card);
+          });
+        }
+
+        function focusShop(shop) {
+          if (!shop.pos) return;
+          mapEl.center = shop.pos;
+          mapEl.zoom = 14;
+          const marker = shopMarkers.get(shop.id);
+          if (marker) {
+            shopInfo.setContent(`<strong>${shop.name}</strong><br><span>${shop.address}</span>`);
+            shopInfo.open(mapEl.innerMap, marker);
+
+          }
+        }
+
+        function chooseShop(shop) {
+          const chosen = document.getElementById("chosen");
+          chosen.textContent = `${shop.name} — ${shop.address}`;
+        }
+
+        function computeNearestShop(fromPos) {
+          let best = null;
+          let bestKm = Infinity;
+
+          for (const s of shops) {
+            if (!s.pos) continue;
+            const km = distanceKm(fromPos, s.pos);
+            if (km < bestKm) {
+              bestKm = km;
+              best = s;
+            }
+          }
+          return { best, bestKm };
+        }
+
+        // Initial sidebar
+        renderSidebar(null, null);
+
+        // Adresse utilisateur => pin rouge
+       placePicker.addEventListener("gmpx-placechange", () => {
           const place = placePicker.value;
 
           if (!place || !place.location) {
@@ -69,32 +487,62 @@
             return;
           }
 
-          // centre carte sur l’adresse
+          // Centre sur l'utilisateur
           mapEl.center = place.location;
           mapEl.zoom = 12;
 
-          // crée le marqueur utilisateur au besoin
-          if (!userMarker) {
+          const userPos = extractLatLng(place.location);
+          if (!userPos) return;
+
+          // Pin utilisateur
+         if (!userMarker) {
             userMarker = document.createElement("gmp-advanced-marker");
+
+            // Ajoute le pin rouge
             const pin = makeRedPin();
             userMarker.appendChild(pin);
+
             mapEl.appendChild(userMarker);
 
-            // ré-ouvrir la bulle au clic sur le pin
+            //  Quand on clique sur le PIN rouge => ré-ouvrir la bulle
             pin.addEventListener("click", (e) => {
               e.stopPropagation();
               userInfo.setContent("<strong>📍 C’est vous ici</strong>");
               userInfo.open(mapEl.innerMap, userMarker);
             });
+
+            //  Et si on clique sur le marker (fallback)
+            userMarker.addEventListener("click", () => {
+              userInfo.setContent("<strong>📍 C’est vous ici</strong>");
+              userInfo.open(mapEl.innerMap, userMarker);
+            });
           }
 
-          // position utilisateur
           userMarker.position = place.location;
 
-          // bulle automatique
+
+          //  Bulle "C’est vous ici"
           userInfo.setContent("<strong>📍 C’est vous ici</strong>");
           userInfo.open(mapEl.innerMap, userMarker);
+
+          // Calcul boutique la plus proche
+          const result = computeNearestShop(userPos);
+          const best = result.best;
+          const bestKm = result.bestKm;
+
+          renderSidebar(best ? best.id : null, bestKm);
+
+          const nearestText = document.getElementById("nearest");
+          nearestText.textContent = best
+            ? `${best.name} (~${bestKm.toFixed(1)} km)`
+            : "—";
+
+          // même effet que “Voir sur la carte”
+          if (best) {
+            focusShop(best);
+          }
         });
+
       }
 
       document.addEventListener("DOMContentLoaded", init);
@@ -102,12 +550,61 @@
   </head>
 
   <body>
-    <div class="bar">
-      <gmpx-place-picker placeholder="Entrez votre adresse de livraison"></gmpx-place-picker>
-    </div>
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo">🍪</div>
+        <div>CookieBook – PoC Localisation</div>
+      </div>
+      <div style="font-size:13px; opacity:.95; font-weight:800;">
+        Points de ramassage / livraison
+      </div>
+    </header>
 
-    <gmpx-api-loader key="VOTRE_CLE_API" solution-channel="POC_CookieBook"></gmpx-api-loader>
+    <main class="wrap">
+      <section class="card">
+        <h2 class="title">Trouver une boutique proche de moi</h2>
 
-    <gmp-map map-id="VOTRE_MAP_ID" center="47.2,-70.4" zoom="6"></gmp-map>
+        <div class="row">
+          <div class="picker">
+            <gmpx-place-picker placeholder="Entrez votre adresse de livraison"></gmpx-place-picker>
+          </div>
+        </div>
+
+        <p class="hint">
+          Commence à taper ton adresse, choisis une suggestion, puis la carte se met à jour.
+        </p>
+
+        <p class="mini">
+          Boutique la plus proche : <strong id="nearest">—</strong>
+        </p>
+        <p class="mini">
+          Boutique choisie : <strong id="chosen">—</strong>
+        </p>
+
+        <div class="status" id="status">—</div>
+      </section>
+
+      <!--  Mets ta clé API sécurisée ici -->
+      <gmpx-api-loader key="AIzaSyCv23VZTXsyllyA3ZS5ThSJPeobnFWDa4Y" solution-channel="POC_CookieBook"></gmpx-api-loader>
+
+      <section class="grid">
+        <div>
+          <gmp-map map-id="92eddb9b5ca973ab1cd06288">
+            <!-- Marqueurs ajoutés en JS -->
+          </gmp-map>
+        </div>
+
+        <aside class="side">
+          <div class="card" style="padding:14px;">
+            <div style="font-weight:900; margin-bottom:8px;">Boutiques CookieBook</div>
+            <div class="hint" style="margin-top:0;">
+              Clique “Voir sur la carte” ou “Choisir”.
+            </div>
+          </div>
+
+          <div id="storeList"></div>
+        </aside>
+      </section>
+    </main>
   </body>
 </html>
