@@ -6,31 +6,45 @@ https://chatgpt.com/share/699382bf-8bf0-8000-9e5c-36470b3966ef
 
 # 📰 Fils RSS (CookieBook)
 
-- Google Search Central (SEO) : https://developers.google.com/search/blog/rss.xml
-- Google Maps Platform (Medium) : https://medium.com/feed/google-maps-platform
-- Shopify Blog : https://www.shopify.com/blog.atom
-- Moz Blog (SEO) : https://moz.com/blog/feed
-- Smashing Magazine (web front-end) : https://www.smashingmagazine.com/feed/
+- Google Search Central (SEO) : https://feeds.feedburner.com/blogspot/amDG
+- Moz Blog (SEO) : https://moz.com/posts/rss/blog
+- Smashing Magazine (Front-end / UX) : https://www.smashingmagazine.com/feed/
+- web.dev (perf / SEO / bonnes pratiques) : https://web.dev/feed.xml
+- Shopify (e-commerce) : https://www.shopify.com/blog.atom
 
 
-# 🌎 Communautés (CookieBook)
+# 🌎 Communautés – CookieBook
 
 ## Discord
-- SEO Signals Lab (Discord communauté SEO) : https://seosignalslab.com/discord
+The SEO Community (via Disboard)
+https://disboard.org/
 
 ## Reddit
-- r/SEO : https://www.reddit.com/r/SEO/
-- r/webdev : https://www.reddit.com/r/webdev/
+r/webdev
+https://www.reddit.com/r/webdev/
 
 ## Twitter/X
-- Google Search Central : https://twitter.com/googlesearchc
+Google Search Central
+https://x.com/googlesearchc
 
 ## Forum
-- Google Business Profile Help Community : https://support.google.com/business/community
+Google Business Profile Help Community
+https://support.google.com/business/community
 
 ## Blog
-- Ahrefs Blog (SEO) : https://ahrefs.com/blog/
+Smashing Magazine
+https://www.smashingmagazine.com/
 
-## Chaîne YouTube
-- Google Search Central : https://www.youtube.com/@GoogleSearchCentral
-- Fireship (web dev rapide) : https://www.youtube.com/@Fireship
+## YouTube
+Google Search Central
+https://www.youtube.com/@GoogleSearchCentral
+
+
+
+# 🔖 Collection Raindrop – CookieBook
+
+Lien public :
+https://raindrop.io/dianakowa4/veille-cookie-book-67042454
+
+Flux RSS :
+https://bg.raindrop.io/rss/public/67042454
