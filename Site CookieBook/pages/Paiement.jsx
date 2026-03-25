@@ -7,6 +7,9 @@ import MapPicker from "../components/MapPicker.jsx";
 import { loadStripe } from "@stripe/stripe-js";
 import { Elements } from "@stripe/react-stripe-js";
 import PaiementStripe from "../components/PaiementStripe.jsx";
+import { doc, setDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "../firebase";
+import { useAuth } from "../context/AuthContext";
 
 function round2(n) {
   return Math.round(n * 100) / 100;
@@ -18,6 +21,7 @@ export default function Checkout() {
   const nav = useNavigate();
   const location = useLocation();
   const { items, subtotal, clear } = useCart();
+  const { user } = useAuth();
 
   const [pickupShop, setPickupShop] = useState(null);
 
@@ -28,7 +32,7 @@ export default function Checkout() {
   });
 
   const [clientSecret, setClientSecret] = useState("");
-  const [preference, setPreference] = useState("pickup"); // pickup | delivery
+  const [preference, setPreference] = useState("pickup");
   const [address, setAddress] = useState({
     line1: "",
     city: "",
@@ -36,7 +40,7 @@ export default function Checkout() {
     notes: "",
   });
 
-  const [tipType, setTipType] = useState("percent"); // percent | amount
+  const [tipType, setTipType] = useState("percent");
   const [tipValue, setTipValue] = useState(10);
   const [payment, setPayment] = useState("visa");
 
@@ -141,6 +145,35 @@ export default function Checkout() {
     return { ok: true };
   };
 
+  const saveOrder = async () => {
+    const raw = sessionStorage.getItem("pending_order");
+    if (!raw) {
+      console.warn("Aucune commande en attente trouvée.");
+      return;
+    }
+
+    const orderData = JSON.parse(raw);
+
+    if (!orderData.items || orderData.items.length === 0 || orderData.total <= 0) {
+      console.warn("Commande ignorée : panier vide ou total à 0.");
+      return;
+    }
+
+    if (!orderData.orderId) {
+      console.warn("Commande ignorée : orderId manquant.");
+      return;
+    }
+
+    await setDoc(
+      doc(db, "orders", orderData.orderId),
+      {
+        ...orderData,
+        createdAt: serverTimestamp(),
+      },
+      { merge: true }
+    );
+  };
+
   const placeOrder = async () => {
     const v = validateBeforeOrder();
 
@@ -189,9 +222,6 @@ export default function Checkout() {
         ),
     };
 
-    console.log("PANIER BRUT =", items);
-    console.log("PAYLOAD ENVOYÉ =", payload);
-
     if (!payload.items.length) {
       await Swal.fire({
         icon: "error",
@@ -210,7 +240,6 @@ export default function Checkout() {
       });
 
       const text = await res.text();
-      console.log("Réponse brute serveur =", text);
 
       let data = {};
       try {
@@ -218,8 +247,6 @@ export default function Checkout() {
       } catch {
         data = { error: text };
       }
-
-      console.log("Réponse JSON serveur =", data);
 
       if (!res.ok || !data.url) {
         await Swal.fire({
@@ -230,6 +257,43 @@ export default function Checkout() {
         });
         return;
       }
+
+      const pendingOrder = {
+        orderId: crypto.randomUUID(),
+        userId: user?.uid || null,
+        customerName: customer.name,
+        email: customer.email,
+        phone: customer.phone,
+        address:
+          preference === "delivery"
+            ? `${address.line1}, ${address.city}, ${address.postal}`
+            : pickupShop?.address || "Point de ramassage",
+        preference,
+        pickupShop: pickupShop || null,
+        items: items.map((item) => ({
+          name: item.name,
+          quantity: item.quantity,
+          price: item.price,
+          totalPrice: item.totalPrice,
+          image: item.image || "",
+          description: item.description || "",
+
+          // détails importants pour l’admin
+          selectedCookies: item.selectedCookies || [],
+          flavors: item.flavors || [],
+          options: item.options || {},
+          boxDetails: item.boxDetails || null,
+          size: item.size || "",
+          category: item.category || "",
+        })),
+        subtotal,
+        taxes,
+        tip,
+        total,
+      };
+
+      sessionStorage.setItem("pending_order", JSON.stringify(pendingOrder));
+      sessionStorage.removeItem("order_saved");
 
       window.location.href = data.url;
     } catch (e) {
@@ -249,38 +313,46 @@ export default function Checkout() {
     const cancel = params.get("cancel");
 
     if (success === "1") {
-      Swal.fire({
-        icon: "success",
-        title: "Commande confirmée ! 🍪",
-        text: "Merci 💛 Ton paiement a été accepté.",
-        confirmButtonColor: "#ff3b6b",
-      }).then(() => {
-        confetti({
-          particleCount: 180,
-          spread: 75,
-          origin: { y: 0.65 },
-        });
+      const alreadySaved = sessionStorage.getItem("order_saved");
 
-        clear();
-        nav("/paiement", { replace: true });
-      });
+      (async () => {
+        try {
+          if (!alreadySaved) {
+            sessionStorage.setItem("order_saved", "1");
+            await saveOrder();
+          }
+
+          await Swal.fire({
+            icon: "success",
+            title: "Commande confirmée ! 🍪",
+            text: "Merci 💛 Ton paiement a été accepté.",
+            confirmButtonColor: "#ff3b6b",
+          });
+
+          confetti({
+            particleCount: 180,
+            spread: 75,
+            origin: { y: 0.65 },
+          });
+
+          sessionStorage.removeItem("pending_order");
+          clear();
+          nav("/paiement", { replace: true });
+        } catch (error) {
+          console.error("Erreur enregistrement commande :", error);
+        }
+      })();
     }
 
     if (cancel === "1") {
       Swal.fire({
         icon: "info",
         title: "Paiement annulé",
-        text: "Aucun montant n’a été débité. Tu peux réessayer quand tu veux.",
+        text: "Tu peux reprendre ta commande quand tu veux.",
         confirmButtonColor: "#ff3b6b",
-      }).then(() => {
-        nav("/paiement", { replace: true });
       });
     }
   }, [location.search, clear, nav]);
-
-  console.log("clientSecret =", clientSecret);
-  console.log("API URL =", import.meta.env.VITE_API_URL);
-  console.log("totalCents =", totalCents);
 
   return (
     <div className="stack gap-xl">
