@@ -1,0 +1,30 @@
+name: Release Watch
+
+on:
+  schedule:
+    - cron: "0 9 * * 1"
+  workflow_dispatch:
+
+jobs:
+  check-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check latest React release
+        run: |
+          curl -s https://api.github.com/repos/facebook/react/releases/latest > release.json
+          echo "Latest release:"
+          cat release.json
+
+      - name: Send Discord notification
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.DISCORD_WEBHOOK }}
+        run: |
+          TAG=$(jq -r '.tag_name' release.json)
+          URL=$(jq -r '.html_url' release.json)
+          NAME=$(jq -r '.name' release.json)
+
+          curl -H "Content-Type: application/json" \
+          -X POST \
+          -d "{\"content\":\"Nouvelle vérification release React : **$NAME** ($TAG) - $URL\"}" \
+          $DISCORD_WEBHOOK
