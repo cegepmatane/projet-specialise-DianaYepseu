@@ -1,1 +1,35 @@
-https://cegepmatane.github.io/projet-specialise-DianaYepseu/
+# VEILLE-3 — Itération 3
+
+## (1) Veille des dépendances automatique
+
+### GitHub Action — Surveillance de releases
+- Lien vers le workflow : [.github/workflows/surveillance-releases.yml](https://github.com/cegepmatane/projet-specialise-DianaYepseu/actions/workflows/release-watch.yml)
+- Lien vers l'exécution du workflow (onglet Actions) : https://github.com/cegepmatane/projet-specialise-DianaYepseu/actions
+- Lien vers l'Issue auto-créée : 
+
+### Dependabot
+- Lien vers le fichier : [.github/dependabot.yml](https://github.com/cegepmatane/projet-specialise-DianaYepseu/tree/main/.github/workflows)
+
+---
+
+## (2) Veille de sécurité automatique
+
+### Option choisie : A
+
+### Si Option A — Audit de dépendances
+- Lien vers le workflow : [.github/workflows/audit-securite.yml](https://github.com/cegepmatane/projet-specialise-DianaYepseu/actions/workflows/audit-securite.yml)
+- Lien vers l'exécution du workflow (onglet Actions) : https://github.com/cegepmatane/projet-specialise-DianaYepseu/actions
+- Lien vers l'Issue auto-créée : https://github.com/cegepmatane/projet-specialise-DianaYepseu/issues/18
+- Commande utilisée : `npm audit`
+
+
+## (3) Audit techno intelligent
+
+- Lien vers la conversation IA : https://chatgpt.com/share/69d3fa39-fac8-8328-b88f-da3a6fa39c93
+- Fichier d'audit : `doc/audit-techno.md`
+
+---
+
+## (4) Page de veille publique
+
+- URL GitHub Pages : https://cegepmatane.github.io/projet-specialise-DianaYepseu/
