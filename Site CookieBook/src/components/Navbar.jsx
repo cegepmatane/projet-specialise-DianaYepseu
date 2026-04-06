@@ -2,7 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext.jsx";
 import { CATEGORIES } from "../data/catalog.js";
-
+import { useAuth } from "../context/AuthContext";
 export default function Navbar() {
   const nav = useNavigate();
 
@@ -12,7 +12,7 @@ export default function Navbar() {
   const [q, setQ] = useState("");
 
   const { count, items } = useCart();
-
+  const { user } = useAuth();
   const topLinks = useMemo(
     () => [
       { to: "/", label: "Accueil" },
@@ -124,6 +124,29 @@ export default function Navbar() {
           </div>
 
           <nav className="nav-links" aria-label="Navigation principale">
+           <button
+              className="icon-btn search-btn"
+              aria-label="Rechercher"
+              onClick={openSearch}
+              type="button"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="size-6"
+                width="24"
+                height="24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                />
+              </svg>
+            </button>
             {topLinks.map((l) => (
               <NavLink key={l.to} to={l.to} className="navlink">
                 {l.label}
@@ -132,12 +155,15 @@ export default function Navbar() {
           </nav>
 
           <div className="nav-right">
-            <button
-              className="icon-btn account-btn"
-              aria-label="Compte"
-              type="button"
-              onClick={() => nav("/connexion")}
-            >
+           <button
+            className="icon-btn account-btn"
+            aria-label="Compte"
+            type="button"
+            onClick={() => {
+              closeAll();
+              nav("/compte");
+            }}
+          >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 fill="none"

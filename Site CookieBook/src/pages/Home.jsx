@@ -15,7 +15,7 @@ export default function Home() {
     return {
       title: "Des douceurs qui claquent ✨",
       subtitle:
-        "Commande tes cookies, crêpes, churros et tiramisus. Personnalise, ajoute au panier, puis paie en 2 minutes.",
+        "Commande tes cookies, Personnalise, ajoute au panier, puis paie en 2 minutes.",
       image: any.image,
     };
   }, []);
@@ -34,6 +34,9 @@ export default function Home() {
             <button className="btn primary" onClick={() => setShowModal(true)}>
               Commander
             </button>
+            <button className="btn" onClick={() => nav("/construire-une-boite")}>
+              Construire ma boîte
+            </button>
             <button className="btn" onClick={() => nav("/menu")}>
               Voir le menu
             </button>
@@ -44,26 +47,6 @@ export default function Home() {
           <img src={hero.image} alt="Pâtisseries" />
         </div>
       </section>
-
-      {/* Section horaires et délai de fabrication */}
-      <section className="card">
-        <h2>Horaires & délais de fabrication</h2>
-        <div className="grid-2">
-          <div className="info">
-            <div className="info-title">Horaires</div>
-            <div className="muted">Lun–Sam • 10h à 18h</div>
-            <div className="muted">Dimanche • sur demande</div>
-          </div>
-          <div className="info">
-            <div className="info-title">Délais</div>
-            <div className="muted">24–48h en général</div>
-            <div className="muted">
-              Les grosses commandes peuvent demander plus (tu verras ça au panier).
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Aperçu des variétés */}
         <section className="card">
                 <h2>Nos catégories</h2>

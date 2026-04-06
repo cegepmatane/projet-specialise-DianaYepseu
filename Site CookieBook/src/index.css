@@ -1,0 +1,16 @@
+/* ===== Reset / Base global (remplace le CSS Vite) ===== */
+
+:root {
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+  line-height: 1.5;
+  font-weight: 400;
+
+  /* couleurs de base */
+  color: #101828;
+  background: #f6f7fb;
+
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
