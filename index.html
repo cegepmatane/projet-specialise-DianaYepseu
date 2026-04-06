@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Veille technologique - CookieBook</title>
+</head>
+
+<body>
+  <h1>🍪 Dashboard de veille technologique - CookieBook</h1>
+
+  <p>Ce dashboard présente les données de veille technologique collectées automatiquement via GitHub Actions.</p>
+
+  <h2>📊 Comparaison des technologies</h2>
+  <pre id="comparaison"></pre>
+
+  <h2>🚀 Dernière release</h2>
+  <pre id="release"></pre>
+
+  <h2>📅 Dernière mise à jour</h2>
+  <pre id="meta"></pre>
+
+  <script>
+    // Charger les données JSON
+    fetch('data/comparaison.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('comparaison').textContent = JSON.stringify(data, null, 2);
+      });
+
+    fetch('data/release.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('release').textContent = JSON.stringify(data, null, 2);
+      });
+
+    fetch('data/meta.json')
+      .then(res => res.json())
+      .then(data => {
+        document.getElementById('meta').textContent = JSON.stringify(data, null, 2);
+      });
+  </script>
+</body>
+</html>
