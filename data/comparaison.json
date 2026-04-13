@@ -1,6 +1,6 @@
 [
-{"nom":"react","repo":"facebook/react","stars":244434,"forks":50980,"issues":1218},
-{"nom":"core","repo":"vuejs/core","stars":53376,"forks":9079,"issues":977},
-{"nom":"svelte","repo":"sveltejs/svelte","stars":86188,"forks":4863,"issues":975},
-{"nom":"angular","repo":"angular/angular","stars":100106,"forks":27143,"issues":1135}
+{"nom":"react","repo":"facebook/react","stars":244441,"forks":50908,"issues":1220},
+{"nom":"core","repo":"vuejs/core","stars":53422,"forks":9088,"issues":980},
+{"nom":"svelte","repo":"sveltejs/svelte","stars":86288,"forks":4888,"issues":981},
+{"nom":"angular","repo":"angular/angular","stars":100041,"forks":27150,"issues":1132}
 ]
