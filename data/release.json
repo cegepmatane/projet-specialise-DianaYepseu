@@ -43,15 +43,15 @@
   "body": "## React Server Components\r\n\r\n- Add more cycle protections ([#36236](https://github.com/facebook/react/pull/36236) by @eps1lon and @unstubbable)",
   "reactions": {
     "url": "https://api.github.com/repos/facebook/react/releases/306613139/reactions",
-    "total_count": 50,
-    "+1": 10,
+    "total_count": 63,
+    "+1": 14,
     "-1": 0,
     "laugh": 0,
     "hooray": 0,
     "confused": 0,
-    "heart": 13,
-    "rocket": 19,
-    "eyes": 8
+    "heart": 17,
+    "rocket": 23,
+    "eyes": 9
   },
   "mentions_count": 2
 }
