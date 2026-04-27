@@ -21,12 +21,12 @@
   </entry>
   <entry>
     <id>tag:github.com,2008:Repository/10270250/eslint-plugin-react-hooks@7.1.0</id>
-    <updated>2026-04-17T19:41:40Z</updated>
+    <updated>2026-04-20T15:38:52Z</updated>
     <link rel="alternate" type="text/html" href="https://github.com/facebook/react/releases/tag/eslint-plugin-react-hooks%407.1.0"/>
     <title>eslint-plugin-react-hooks@7.1.0 (April 16, 2026)</title>
     <content type="html">&lt;p&gt;This release adds ESLint v10 support, improves performance by skipping compilation for non-React files, and includes compiler lint improvements including better &lt;code&gt;set-state-in-effect&lt;/code&gt; detection, improved ref validation, and more helpful error reporting.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Add ESLint v10 support. (&lt;a href=&quot;https://github.com/nicolo-ribaudo&quot;&gt;@nicolo-ribaudo&lt;/a&gt; in &lt;a href=&quot;https://github.com/facebook/react/pull/35720&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/35720/hovercard&quot;&gt;#35720&lt;/a&gt;)&lt;/li&gt;
+&lt;li&gt;Add ESLint v10 support. (&lt;a href=&quot;https://github.com/azat-io&quot;&gt;@azat-io&lt;/a&gt; in &lt;a href=&quot;https://github.com/facebook/react/pull/35720&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/35720/hovercard&quot;&gt;#35720&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Skip compilation for non-React files to improve performance. (&lt;a href=&quot;https://github.com/josephsavona&quot;&gt;@josephsavona&lt;/a&gt; in &lt;a href=&quot;https://github.com/facebook/react/pull/35589&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/35589/hovercard&quot;&gt;#35589&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Fix exhaustive deps bug with Flow type casting. (&lt;a href=&quot;https://github.com/jorge-cab&quot;&gt;@jorge-cab&lt;/a&gt; in &lt;a href=&quot;https://github.com/facebook/react/pull/35691&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/35691/hovercard&quot;&gt;#35691&lt;/a&gt;)&lt;/li&gt;
 &lt;li&gt;Fix &lt;code&gt;useEffectEvent&lt;/code&gt; checks in component syntax. (&lt;a href=&quot;https://github.com/jbrown215&quot;&gt;@jbrown215&lt;/a&gt; in &lt;a href=&quot;https://github.com/facebook/react/pull/35041&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/35041/hovercard&quot;&gt;#35041&lt;/a&gt;)&lt;/li&gt;
