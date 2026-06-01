@@ -66,16 +66,16 @@
   "releases_url": "https://api.github.com/repos/facebook/react/releases{/id}",
   "deployments_url": "https://api.github.com/repos/facebook/react/deployments",
   "created_at": "2013-05-24T16:15:54Z",
-  "updated_at": "2026-05-25T11:37:05Z",
-  "pushed_at": "2026-05-23T07:19:16Z",
+  "updated_at": "2026-06-01T13:05:55Z",
+  "pushed_at": "2026-06-01T06:38:11Z",
   "git_url": "git://github.com/facebook/react.git",
   "ssh_url": "org-69631@github.com:facebook/react.git",
   "clone_url": "https://github.com/facebook/react.git",
   "svn_url": "https://github.com/facebook/react",
   "homepage": "https://react.dev",
-  "size": 978328,
-  "stargazers_count": 245262,
-  "watchers_count": 245262,
+  "size": 991134,
+  "stargazers_count": 245351,
+  "watchers_count": 245351,
   "language": "JavaScript",
   "has_issues": true,
   "has_projects": false,
@@ -83,7 +83,7 @@
   "has_wiki": false,
   "has_pages": true,
   "has_discussions": false,
-  "forks_count": 51103,
+  "forks_count": 51151,
   "mirror_url": null,
   "archived": false,
   "disabled": false,
@@ -109,9 +109,9 @@
     "ui"
   ],
   "visibility": "public",
-  "forks": 51103,
+  "forks": 51151,
   "open_issues": 1308,
-  "watchers": 245262,
+  "watchers": 245351,
   "default_branch": "main",
   "temp_clone_token": null,
   "custom_properties": {
@@ -138,6 +138,6 @@
     "user_view_type": "public",
     "site_admin": false
   },
-  "network_count": 51103,
-  "subscribers_count": 6629
+  "network_count": 51151,
+  "subscribers_count": 6628
 }
