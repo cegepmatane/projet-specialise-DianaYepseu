@@ -4,7 +4,52 @@
   <link type="text/html" rel="alternate" href="https://github.com/facebook/react/releases"/>
   <link type="application/atom+xml" rel="self" href="https://github.com/facebook/react/releases.atom"/>
   <title>Release notes from react</title>
-  <updated>2026-05-06T14:23:32Z</updated>
+  <updated>2026-06-01T17:44:50Z</updated>
+  <entry>
+    <id>tag:github.com,2008:Repository/10270250/v19.2.7</id>
+    <updated>2026-06-01T18:04:24Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/facebook/react/releases/tag/v19.2.7"/>
+    <title>19.2.7 (June 1st, 2026)</title>
+    <content type="html">&lt;h2&gt;React Server Components&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Fixed missing &lt;code&gt;FormData&lt;/code&gt; entries in Server Actions which regressed in 19.2.6&lt;br&gt;
+(&lt;a href=&quot;https://github.com/facebook/react/pull/36566&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/36566/hovercard&quot;&gt;#36566&lt;/a&gt; by &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/unstubbable/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/unstubbable&quot;&gt;@unstubbable&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>eps1lon</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/12292047?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/10270250/v19.1.8</id>
+    <updated>2026-06-01T18:04:14Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/facebook/react/releases/tag/v19.1.8"/>
+    <title>19.1.8 (June 1st, 2026)</title>
+    <content type="html">&lt;h2&gt;React Server Components&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Fixed missing &lt;code&gt;FormData&lt;/code&gt; entries in Server Actions which regressed in 19.1.7&lt;br&gt;
+(&lt;a href=&quot;https://github.com/facebook/react/pull/36567&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/36567/hovercard&quot;&gt;#36567&lt;/a&gt; by &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/unstubbable/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/unstubbable&quot;&gt;@unstubbable&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>eps1lon</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/12292047?s=60&amp;v=4"/>
+  </entry>
+  <entry>
+    <id>tag:github.com,2008:Repository/10270250/v19.0.7</id>
+    <updated>2026-06-01T18:04:09Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/facebook/react/releases/tag/v19.0.7"/>
+    <title>19.0.7 (June 1st, 2026)</title>
+    <content type="html">&lt;h2&gt;React Server Components&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Fixed missing &lt;code&gt;FormData&lt;/code&gt; entries in Server Actions which regressed in 19.0.6&lt;br&gt;
+(&lt;a href=&quot;https://github.com/facebook/react/pull/36568&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/36568/hovercard&quot;&gt;#36568&lt;/a&gt; by &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/unstubbable/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/unstubbable&quot;&gt;@unstubbable&lt;/a&gt;)&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>eps1lon</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/12292047?s=60&amp;v=4"/>
+  </entry>
   <entry>
     <id>tag:github.com,2008:Repository/10270250/v19.2.6</id>
     <updated>2026-05-06T17:33:20Z</updated>
@@ -107,48 +152,6 @@
     <content type="html">&lt;h2&gt;React Server Components&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Add more cycle protections (&lt;a href=&quot;https://github.com/facebook/react/pull/36236&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/36236/hovercard&quot;&gt;#36236&lt;/a&gt; by &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/eps1lon/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/eps1lon&quot;&gt;@eps1lon&lt;/a&gt; and &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/unstubbable/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/unstubbable&quot;&gt;@unstubbable&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;</content>
-    <author>
-      <name>eps1lon</name>
-    </author>
-    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/12292047?s=60&amp;v=4"/>
-  </entry>
-  <entry>
-    <id>tag:github.com,2008:Repository/10270250/v19.0.5</id>
-    <updated>2026-04-08T18:49:11Z</updated>
-    <link rel="alternate" type="text/html" href="https://github.com/facebook/react/releases/tag/v19.0.5"/>
-    <title>19.0.5 (April 8th, 2026)</title>
-    <content type="html">&lt;h2&gt;React Server Components&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Add more cycle protections (&lt;a href=&quot;https://github.com/facebook/react/pull/36236&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/36236/hovercard&quot;&gt;#36236&lt;/a&gt; by &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/eps1lon/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/eps1lon&quot;&gt;@eps1lon&lt;/a&gt; and &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/unstubbable/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/unstubbable&quot;&gt;@unstubbable&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;</content>
-    <author>
-      <name>eps1lon</name>
-    </author>
-    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/12292047?s=60&amp;v=4"/>
-  </entry>
-  <entry>
-    <id>tag:github.com,2008:Repository/10270250/v19.2.4</id>
-    <updated>2026-01-26T20:17:33Z</updated>
-    <link rel="alternate" type="text/html" href="https://github.com/facebook/react/releases/tag/v19.2.4"/>
-    <title>19.2.4 (January 26th, 2026)</title>
-    <content type="html">&lt;h2&gt;React Server Components&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Add more DoS mitigations to Server Actions, and harden Server Components (&lt;a href=&quot;https://github.com/facebook/react/pull/35632&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/35632/hovercard&quot;&gt;#35632&lt;/a&gt; by &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/gnoff/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/gnoff&quot;&gt;@gnoff&lt;/a&gt;, &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/lubieowoce/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/lubieowoce&quot;&gt;@lubieowoce&lt;/a&gt;, &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/sebmarkbage/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/sebmarkbage&quot;&gt;@sebmarkbage&lt;/a&gt;, &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/unstubbable/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/unstubbable&quot;&gt;@unstubbable&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;</content>
-    <author>
-      <name>eps1lon</name>
-    </author>
-    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/12292047?s=60&amp;v=4"/>
-  </entry>
-  <entry>
-    <id>tag:github.com,2008:Repository/10270250/v19.1.5</id>
-    <updated>2026-01-26T20:18:01Z</updated>
-    <link rel="alternate" type="text/html" href="https://github.com/facebook/react/releases/tag/v19.1.5"/>
-    <title>19.1.5 (January 26th, 2026)</title>
-    <content type="html">&lt;h2&gt;React Server Components&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Add more DoS mitigations to Server Actions, and harden Server Components (&lt;a href=&quot;https://github.com/facebook/react/pull/35632&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/facebook/react/pull/35632/hovercard&quot;&gt;#35632&lt;/a&gt; by &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/gnoff/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/gnoff&quot;&gt;@gnoff&lt;/a&gt;, &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/lubieowoce/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/lubieowoce&quot;&gt;@lubieowoce&lt;/a&gt;, &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/sebmarkbage/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/sebmarkbage&quot;&gt;@sebmarkbage&lt;/a&gt;, &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/unstubbable/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/unstubbable&quot;&gt;@unstubbable&lt;/a&gt;)&lt;/li&gt;
 &lt;/ul&gt;</content>
     <author>
       <name>eps1lon</name>
