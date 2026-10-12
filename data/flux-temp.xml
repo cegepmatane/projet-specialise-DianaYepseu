@@ -216,6 +216,33 @@
     <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/12292047?s=60&amp;v=4"/>
   </entry>
   <entry>
+    <id>tag:github.com,2008:Repository/10270250/react-devtools@8.0.0</id>
+    <updated>2026-09-08T23:08:45Z</updated>
+    <link rel="alternate" type="text/html" href="https://github.com/react/react/releases/tag/react-devtools%408.0.0"/>
+    <title>react-devtools@8.0.0: React DevTools 7.0.1 -&gt; 8.0.0 (#37546)</title>
+    <content type="html">&lt;h2&gt;Summary&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Bump React DevTools from 7.0.1 to 8.0.0 (packages + extension&lt;br&gt;
+manifests only; no publish).&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;scripts/devtools/prepare-release.js&lt;/code&gt; only supports minor/patch, so&lt;br&gt;
+this major bump is manual.&lt;/li&gt;
+&lt;li&gt;Changelog is curated from DevTools commits since 7.0.1 (features vs&lt;br&gt;
+bugfixes; internal/test-only changes omitted).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Test plan&lt;/h2&gt;
+&lt;ul class=&quot;contains-task-list&quot;&gt;
+&lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; id=&quot;&quot; disabled=&quot;&quot; class=&quot;task-list-item-checkbox&quot; aria-label=&quot;Incomplete task&quot;&gt; Confirm published package versions would be 8.0.0 for&lt;br&gt;
+&lt;code&gt;react-devtools&lt;/code&gt;, &lt;code&gt;react-devtools-core&lt;/code&gt;, and &lt;code&gt;react-devtools-inline&lt;/code&gt;&lt;/li&gt;
+&lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; id=&quot;&quot; disabled=&quot;&quot; class=&quot;task-list-item-checkbox&quot; aria-label=&quot;Incomplete task&quot;&gt; Confirm Chrome/Edge/Firefox extension manifests show 8.0.0&lt;/li&gt;
+&lt;li class=&quot;task-list-item&quot;&gt;&lt;input type=&quot;checkbox&quot; id=&quot;&quot; disabled=&quot;&quot; class=&quot;task-list-item-checkbox&quot; aria-label=&quot;Incomplete task&quot;&gt; Review &lt;code&gt;packages/react-devtools/CHANGELOG.md&lt;/code&gt; 8.0.0 section for&lt;br&gt;
+accuracy before undrafting&lt;/li&gt;
+&lt;/ul&gt;</content>
+    <author>
+      <name>hoxyq</name>
+    </author>
+    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/28902667?s=60&amp;v=4"/>
+  </entry>
+  <entry>
     <id>tag:github.com,2008:Repository/10270250/v19.2.8</id>
     <updated>2026-07-21T15:49:09Z</updated>
     <link rel="alternate" type="text/html" href="https://github.com/react/react/releases/tag/v19.2.8"/>
@@ -325,21 +352,6 @@
     <updated>2026-05-06T17:33:35Z</updated>
     <link rel="alternate" type="text/html" href="https://github.com/react/react/releases/tag/v19.1.7"/>
     <title>19.1.7 (May 6th, 2026)</title>
-    <content type="html">&lt;h2&gt;React Server Components&lt;/h2&gt;
-&lt;ul&gt;
-&lt;li&gt;Type hardening and performance improvements&lt;br&gt;
-(&lt;a href=&quot;https://github.com/facebook/react/pull/36425&quot; data-hovercard-type=&quot;pull_request&quot; data-hovercard-url=&quot;/react/react/pull/36425/hovercard&quot;&gt;#36425&lt;/a&gt; by &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/eps1lon/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/eps1lon&quot;&gt;@eps1lon&lt;/a&gt; and &lt;a class=&quot;user-mention notranslate&quot; data-hovercard-type=&quot;user&quot; data-hovercard-url=&quot;/users/unstubbable/hovercard&quot; data-octo-click=&quot;hovercard-link-click&quot; data-octo-dimensions=&quot;link_type:self&quot; href=&quot;https://github.com/unstubbable&quot;&gt;@unstubbable&lt;/a&gt;)&lt;/li&gt;
-&lt;/ul&gt;</content>
-    <author>
-      <name>eps1lon</name>
-    </author>
-    <media:thumbnail height="30" width="30" url="https://avatars.githubusercontent.com/u/12292047?s=60&amp;v=4"/>
-  </entry>
-  <entry>
-    <id>tag:github.com,2008:Repository/10270250/v19.0.6</id>
-    <updated>2026-05-06T17:33:39Z</updated>
-    <link rel="alternate" type="text/html" href="https://github.com/react/react/releases/tag/v19.0.6"/>
-    <title>19.0.6 (May 6th, 2026)</title>
     <content type="html">&lt;h2&gt;React Server Components&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Type hardening and performance improvements&lt;br&gt;
